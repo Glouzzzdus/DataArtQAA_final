@@ -37,16 +37,16 @@ namespace DataArtQAA_Homework04
         [TearDown]
         public void TearDown()
         {
-            //if(TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Passed)
-            //{
-            //    extentTest.Log(Status.Pass);
-            //}
-            //else
-            //{
-            //    var screenshotPath = DriverHelper.MakeScreenshot(Driver, testName: TestContext.CurrentContext.Test.MethodName);
-            //    extentTest.AddScreenCaptureFromPath(screenshotPath);
-            //    extentTest.Log(Status.Fail);
-            //}
+            if (TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Passed)
+            {
+                extentTest.Log(Status.Pass);
+            }
+            else
+            {
+                var screenshotPath = DriverHelper.MakeScreenshot(Driver, testName: TestContext.CurrentContext.Test.MethodName);
+                extentTest.AddScreenCaptureFromPath(screenshotPath);
+                extentTest.Log(Status.Fail);
+            }
             Driver.Quit();
         }
 
